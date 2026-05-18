@@ -15,8 +15,8 @@ const Navbar = () => {
   const [profileOpen, setProfileOpen] = useState(false);
 
   return (
-    <div>
-      <nav className="w-full max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+    <div className="border-b border-[#E2E8F0]">
+      <nav className="w-full max-w-7xl mx-auto px-4 py-4 flex items-center justify-between ">
         {/* LEFT: LOGO */}
         <div className="shrink-0">
           <Image src={Logo} alt="logo" width={130} height={50} />
