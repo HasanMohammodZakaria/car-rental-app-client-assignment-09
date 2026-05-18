@@ -19,7 +19,9 @@ const Navbar = () => {
       <nav className="w-full max-w-7xl mx-auto px-4 py-4 flex items-center justify-between ">
         {/* LEFT: LOGO */}
         <div className="shrink-0">
-          <Image src={Logo} alt="logo" width={130} height={50} />
+          <Link href="/">
+            <Image src={Logo} alt="logo" width={130} height={50} />
+          </Link>
         </div>
 
         {/* CENTER: MENU (desktop only — lg+) */}
