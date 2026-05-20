@@ -1,6 +1,7 @@
 import Image from "next/image";
+import Link from "next/link";
 const CarCard = ({ car }) => {
-  const { imageUrl, carName, dailyRentPrice, carType, seatCapacity } = car;
+  const { _id, imageUrl, carName, dailyRentPrice, carType, seatCapacity } = car;
   return (
     <div className="group relative w-full">
       <div className="absolute -inset-x-0.5 rounded-2xl bg-linear-to-r from-blue-500 via-indigo-500 to-purple-500 opacity-60 group-hover:opacity-100 blur-sm transition"></div>
@@ -31,12 +32,14 @@ const CarCard = ({ car }) => {
             <p>🪑 Seats: {seatCapacity}</p>
           </div>
 
-          <button
-            className="mt-5 w-full py-2.5 rounded-xl bg-black text-white text-sm font-medium
-            hover:bg-gray-800 shadow-md hover:shadow-lg hover:scale-[1.02] transition-all duration-300"
-          >
-            View Details
-          </button>
+          <Link href={`/explore-cars/${_id}`}>
+            <button
+              className="mt-5 w-full py-2.5 rounded-xl bg-black text-white text-sm font-medium
+            hover:bg-gray-800 shadow-md hover:shadow-lg hover:scale-[1.02] transition-all duration-300 cursor-pointer"
+            >
+              View Details
+            </button>
+          </Link>
         </div>
       </div>
     </div>

@@ -1,10 +1,9 @@
-import { fetchCars } from "@/lib/cars/data";
-import React from "react";
+import { fetchAvailableCars } from "@/lib/cars/data";
 import CarCard from "../shared/CarCard";
 import Link from "next/link";
 
 const AvailableCars = async () => {
-  const cars = await fetchCars();
+  const cars = await fetchAvailableCars();
 
   return (
     <div className="py-16 px-4 md:px-10 bg-gray-50">
@@ -19,7 +18,7 @@ const AvailableCars = async () => {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {cars?.slice(0, 6).map((car) => (
+          {cars?.map((car) => (
             <CarCard key={car?._id} car={car} />
           ))}
         </div>
