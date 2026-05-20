@@ -80,7 +80,7 @@ const Navbar = () => {
                     className="block px-4 py-2 hover:bg-gray-100"
                     href="/my-cars"
                   >
-                    My Cars
+                    My Added Cars
                   </Link>
                   <button className="w-full text-left px-4 py-2 text-red-500 hover:bg-red-50">
                     Logout
