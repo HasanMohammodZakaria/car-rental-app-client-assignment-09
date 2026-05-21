@@ -49,7 +49,7 @@ const CarDetailsPage = async ({ params }) => {
         {/* RIGHT SIDE DETAILS CARD */}
         <div className="bg-white border border-gray-200 rounded-3xl p-6 md:p-8 shadow-lg">
           {/* Car Type */}
-          <span className="inline-block bg-black text-white text-sm font-medium px-4 py-2 rounded-full mb-4">
+          <span className="inline-block bg-[#F97316] text-white text-sm font-medium px-4 py-2 rounded-full mb-4">
             {carType}
           </span>
 
@@ -121,7 +121,7 @@ const CarDetailsPage = async ({ params }) => {
                 className={`font-semibold ${
                   availabilityStatus === "available"
                     ? "text-green-600"
-                    : "text-red-500"
+                    : "text-[#F97316]"
                 }`}
               >
                 {availabilityStatus}
@@ -130,7 +130,7 @@ const CarDetailsPage = async ({ params }) => {
           </div>
 
           {/* BUTTON */}
-          <BookingFormModal carName={carName} />
+          <BookingFormModal car={car} />
         </div>
       </div>
     </section>
