@@ -6,11 +6,20 @@ const client = new MongoClient(process.env.MONGODB_URI);
 const db = client.db('car-rental');
 
 export const auth = betterAuth({
+
     database: mongodbAdapter(db, {
         // Optional: if you don't provide a client, database transactions won't be enabled.
         client
     }),
     emailAndPassword: {
         enabled: true,
+        minPasswordLength: 6,
     },
+    socialProviders: {
+        google: {
+            clientId: process.env.GOOGLE_CLIENT_ID,
+            clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+        }
+    }
+
 });
