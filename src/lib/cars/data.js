@@ -27,3 +27,21 @@ export const fetchAddCar = async (carData) => {
     const data = await res.json();
     return data || {}
 }
+
+export const fetchBooking = async (bookingData) => {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/booking`, {
+        method: "POST",
+        headers: {
+            'content-type': 'application/json',
+        },
+        body: JSON.stringify(bookingData)
+    })
+    const data = await res.json();
+    return data || {}
+}
+
+export const fetchUserBooking = async (userId) => {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/booking/${userId}`)
+    const data = res.json()
+    return data || {}
+}

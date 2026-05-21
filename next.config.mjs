@@ -8,6 +8,7 @@ const nextConfig = {
         hostname: '**',
         port: '',
       },
+
     ],
   },
   reactCompiler: true,

@@ -1,5 +1,6 @@
 "use client";
 import { authClient } from "@/lib/auth-client";
+import { fetchBooking } from "@/lib/cars/data";
 import {
   Button,
   Label,
@@ -61,6 +62,8 @@ export function BookingFormModal({ car }) {
       };
 
       // Api call
+      const bookings = await fetchBooking(bookingData);
+      //console.log(bookings);
 
       console.log(bookingData);
       toast.success("Booking successful!");
