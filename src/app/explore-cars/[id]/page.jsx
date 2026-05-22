@@ -10,9 +10,17 @@ import {
 
 import { fetchSingleCar } from "@/lib/cars/data";
 import { BookingFormModal } from "@/components/BookingFormModal";
+import { auth } from "@/lib/auth";
+import { headers } from "next/headers";
+export const dynamic = "force-dynamic";
 
 const CarDetailsPage = async ({ params }) => {
   const { id } = await params;
+
+  const session = await auth.api.getSession({
+    headers: await headers(), // you need to pass the headers object.
+  });
+  const user = session?.user;
 
   const car = await fetchSingleCar(id);
 
@@ -64,7 +72,6 @@ const CarDetailsPage = async ({ params }) => {
             <h2 className="text-2xl font-bold text-primary">
               ${dailyRentPrice}
               <span className="text-base text-gray-500 font-medium">
-                {" "}
                 / Per Day
               </span>
             </h2>
@@ -79,9 +86,9 @@ const CarDetailsPage = async ({ params }) => {
             <div className="flex items-center gap-3 bg-gray-50 p-4 rounded-2xl">
               <FaUsers className="text-primary text-lg" />
               <p className="text-gray-700 font-medium">
-                Booked by{" "}
+                Booked{" "}
                 <span className="font-bold text-black">{bookedCount || 0}</span>{" "}
-                users
+                {bookedCount === 1 ? "times" : "time"}
               </p>
             </div>
 

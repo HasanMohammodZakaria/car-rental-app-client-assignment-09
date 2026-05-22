@@ -67,6 +67,7 @@ export function BookingFormModal({ car }) {
 
       console.log(bookingData);
       toast.success("Booking successful!");
+      router.refresh();
       router.push("/my-bookings");
     } catch (error) {
       console.error(error);

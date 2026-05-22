@@ -3,15 +3,15 @@ import { FaCar, FaMapMarkerAlt, FaCalendarAlt, FaUser } from "react-icons/fa";
 
 const BookingCard = ({ booking }) => {
   return (
-    <div className="flex md:flex-row bg-white border rounded-2xl shadow-md overflow-hidden mt-5">
+    <div className="flex flex-col md:flex-row bg-white border rounded-2xl shadow-md  mt-5">
       {/* 📷 LEFT IMAGE */}
-      <div className="relative w-full md:w-1/3 " style={{ minHeight: "240px" }}>
+      <div className=" w-full md:w-1/3 h-56 md:h-auto overflow-hidden">
         <Image
           src={booking?.carImage}
           alt={booking.carName}
-          fill
-          sizes="(max-width: 768px) 100vw, 33vw"
-          className="object-cover"
+          width={600}
+          height={400}
+          className="w-full h-full object-cover"
         />
       </div>
 
