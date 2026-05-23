@@ -28,7 +28,7 @@ const Navbar = () => {
     await authClient.signOut({
       fetchOptions: {
         onSuccess: () => {
-          router.push = "/";
+          router.push("/");
         },
       },
     });

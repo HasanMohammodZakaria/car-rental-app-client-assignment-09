@@ -56,7 +56,7 @@ const MyAddedCarsPage = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-10">
-      <h1 className="text-2xl font-bold mb-6" style={{ color: "#0F172A" }}>
+      <h1 className="text-2xl font-bold mb-6 text-[#0F172A]">
         My Added Cars ({cars.length})
       </h1>
 
@@ -76,43 +76,24 @@ const MyAddedCarsPage = () => {
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
               {/* Availability Badge */}
-              <span
-                className="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-semibold z-10"
-                style={{
-                  backgroundColor: "#F97316",
-                  color: "#fff",
-                }}
-              >
+              <span className="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-semibold z-10 bg-[#F97316] text-white">
                 {car.availabilityStatus}
               </span>
             </div>
 
             {/* Card Body */}
-            <div
-              className="p-4 space-y-3"
-              style={{ backgroundColor: "#0F172A" }}
-            >
+            <div className="p-4 space-y-3 bg-[#0F172A]">
               {/* Car Name */}
-              <h2 className="text-xl font-bold" style={{ color: "#F97316" }}>
+              <h2 className="text-xl font-bold text-[#F97316]">
                 {car.carName}
               </h2>
 
               {/* Type & Price */}
               <div className="flex items-center justify-between">
-                <span
-                  className="text-xs font-medium px-3 py-1 rounded-full"
-                  style={{
-                    backgroundColor: "#F9731620",
-                    color: "#F97316",
-                    border: "1px solid #F97316",
-                  }}
-                >
+                <span className="text-xs font-medium px-3 py-1 rounded-full bg-[#F9731620] text-[#F97316] border-[#F97316]">
                   {car.carType}
                 </span>
-                <span
-                  className="font-bold text-lg"
-                  style={{ color: "#F97316" }}
-                >
+                <span className="font-bold text-lg text-[#F97316]">
                   ${car.dailyRentPrice}
                   <span className="text-sm font-normal text-gray-400">
                     {" "}
@@ -122,24 +103,18 @@ const MyAddedCarsPage = () => {
               </div>
 
               {/* Seat & Location */}
-              <div
-                className="flex items-center gap-4 text-sm"
-                style={{ color: "#CBD5E1" }}
-              >
+              <div className="flex items-center gap-4 text-sm text-[#CBD5E1]">
                 <span>💺 {car.seatCapacity}</span>
                 <span>📍 {car.pickupLocation}</span>
               </div>
 
               {/* Description */}
-              <p className="text-sm line-clamp-2" style={{ color: "#94A3B8" }}>
+              <p className="text-sm line-clamp-2 text-[#94A3B8]">
                 {car.description}
               </p>
 
               {/* Edit & Delete Buttons */}
-              <div
-                className="flex items-center justify-between pt-3"
-                style={{ borderTop: "1px solid #F9731640" }}
-              >
+              <div className="flex items-center justify-between pt-3 border-t-[#F9731640]">
                 {/* Edit — Left */}
                 <EditCarModal car={car} />
 
