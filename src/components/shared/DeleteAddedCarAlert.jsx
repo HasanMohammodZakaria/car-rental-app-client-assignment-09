@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { MdDeleteOutline } from "react-icons/md";
 
-export function DeleteAlert({ car }) {
+export function DeleteAddedCarAlert({ car }) {
   const [open, setOpen] = useState(false);
   const router = useRouter();
   const { carName } = car;
@@ -21,12 +21,7 @@ export function DeleteAlert({ car }) {
     <AlertDialog isOpen={open} onOpenChange={setOpen}>
       <button
         onClick={() => setOpen(true)}
-        className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200"
-        style={{
-          backgroundColor: "#ff444415",
-          color: "#ff4444",
-          border: "1px solid #ff4444",
-        }}
+        className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 bg-[#ff444415] text-[#ff4444] border-[ff4444]"
         onMouseEnter={(e) => {
           e.currentTarget.style.backgroundColor = "#ff4444";
           e.currentTarget.style.color = "#fff";

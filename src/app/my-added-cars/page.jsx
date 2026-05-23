@@ -4,7 +4,7 @@ import { authClient } from "@/lib/auth-client";
 import { fetchMyAddedCars } from "@/lib/cars/data";
 import Image from "next/image";
 import EditCarModal from "@/components/shared/EditCarModal";
-import { DeleteAlert } from "@/components/shared/DeleteAlert";
+import { DeleteAddedCarAlert } from "@/components/shared/DeleteAddedCarAlert";
 import { Card } from "@heroui/react";
 import { CgTrashEmpty } from "react-icons/cg";
 
@@ -44,7 +44,7 @@ const MyAddedCarsPage = () => {
     return (
       <div className="max-w-7xl mx-auto px-4 py-20 text-center">
         <Card className="border py-8 flex items-center ">
-          <CgTrashEmpty size={40} />
+          <CgTrashEmpty size={40} className="text-red-500" />
 
           <h2 className=" text-md md:text-2xl font-bold text-[#0F172A]">
             You have not added any car yet.
@@ -119,7 +119,7 @@ const MyAddedCarsPage = () => {
                 <EditCarModal car={car} />
 
                 {/* Delete Button */}
-                <DeleteAlert car={car} />
+                <DeleteAddedCarAlert car={car} />
               </div>
             </div>
           </div>

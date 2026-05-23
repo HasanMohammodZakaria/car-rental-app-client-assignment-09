@@ -1,5 +1,8 @@
+"use client";
+import { Button } from "@heroui/react";
 import Image from "next/image";
 import { FaCar, FaMapMarkerAlt, FaCalendarAlt, FaUser } from "react-icons/fa";
+import { MdDeleteOutline } from "react-icons/md";
 
 const BookingCard = ({ booking }) => {
   return (
@@ -47,6 +50,11 @@ const BookingCard = ({ booking }) => {
         >
           {booking.status}
         </span>
+
+        <Button variant="outline" className="text-red-500">
+          <MdDeleteOutline />
+          Delete Bookings
+        </Button>
       </div>
     </div>
   );
