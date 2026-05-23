@@ -17,13 +17,15 @@ export const fetchCarTypes = async () => {
 
 export const fetchSingleCar = async (id) => {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/cars/${id}`, { cache: 'no-store' })
-    const data = await res.json()
+    if (!res.ok) throw new Error('Failed to fetch cars');
+    const data = await res.json();
     return data;
 };
 
 export const fetchAvailableCars = async () => {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/available-cars`)
-    const data = await res.json()
+    if (!res.ok) throw new Error('Failed to fetch cars');
+    const data = await res.json();
     return data;
 };
 
@@ -35,6 +37,7 @@ export const fetchAddCar = async (carData) => {
         },
         body: JSON.stringify(carData)
     })
+    if (!res.ok) throw new Error('Failed to fetch cars');
     const data = await res.json();
     return data;
 }
@@ -47,13 +50,47 @@ export const fetchBooking = async (bookingData) => {
         },
         body: JSON.stringify(bookingData)
     })
+    if (!res.ok) throw new Error('Failed to fetch cars');
     const data = await res.json();
     return data;
 }
 
 export const fetchUserBooking = async (userId) => {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/booking/${userId}`)
-    const data = res.json()
+    if (!res.ok) throw new Error('Failed to fetch cars');
+    const data = await res.json();
     return data;
+}
+
+export const fetchMyAddedCars = async (userId) => {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/my-added-cars/${userId}`)
+    if (!res.ok) throw new Error('Failed to fetch cars');
+    const data = await res.json();
+    return data
+}
+
+export const fetchUpdateCar = async (id, updatedCar) => {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/cars/${id}`, {
+        method: "PATCH",
+        headers: {
+            'content-type': 'application/json',
+        },
+        body: JSON.stringify(updatedCar),
+    })
+    if (!res.ok) throw new Error('Failed to fetch cars');
+    const data = await res.json();
+    return data
+}
+
+export const fetchDeleteMyCar = async (id) => {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/cars/${id}`, {
+        method: "DELETE",
+        headers: {
+            'content-type': 'application/json',
+        },
+    })
+    if (!res.ok) throw new Error('Failed to fetch cars');
+    const data = await res.json();
+    return data
 }
 

@@ -18,7 +18,7 @@ const CarDetailsPage = async ({ params }) => {
   const { id } = await params;
 
   const session = await auth.api.getSession({
-    headers: await headers(), // you need to pass the headers object.
+    headers: await headers(),
   });
   const user = session?.user;
 
@@ -43,7 +43,6 @@ const CarDetailsPage = async ({ params }) => {
   return (
     <section className="max-w-7xl mx-auto px-4 py-10">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-        {/* LEFT SIDE IMAGE */}
         <div className="relative w-full h-87.5 md:h-125 overflow-hidden rounded-3xl shadow-xl border">
           <Image
             src={imageUrl}
@@ -54,19 +53,16 @@ const CarDetailsPage = async ({ params }) => {
           />
         </div>
 
-        {/* RIGHT SIDE DETAILS CARD */}
         <div className="bg-white border border-gray-200 rounded-3xl p-6 md:p-8 shadow-lg">
           {/* Car Type */}
           <span className="inline-block bg-[#F97316] text-white text-sm font-medium px-4 py-2 rounded-full mb-4">
             {carType}
           </span>
 
-          {/* Car Name */}
           <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             {carName}
           </h1>
 
-          {/* Price */}
           <div className="flex items-center gap-2 mb-6">
             <FaCar className="text-primary text-xl" />
             <h2 className="text-2xl font-bold text-primary">
@@ -77,12 +73,9 @@ const CarDetailsPage = async ({ params }) => {
             </h2>
           </div>
 
-          {/* Description */}
           <p className="text-gray-600 leading-relaxed mb-6">{description}</p>
 
-          {/* INFO LIST */}
           <div className="space-y-4">
-            {/* Booked Count */}
             <div className="flex items-center gap-3 bg-gray-50 p-4 rounded-2xl">
               <FaUsers className="text-primary text-lg" />
               <p className="text-gray-700 font-medium">
@@ -92,7 +85,6 @@ const CarDetailsPage = async ({ params }) => {
               </p>
             </div>
 
-            {/* Seat Capacity */}
             <div className="flex items-center gap-3 bg-gray-50 p-4 rounded-2xl">
               <FaChair className="text-primary text-lg" />
               <p className="text-gray-700 font-medium">
@@ -100,13 +92,11 @@ const CarDetailsPage = async ({ params }) => {
               </p>
             </div>
 
-            {/* Location */}
             <div className="flex items-center gap-3 bg-gray-50 p-4 rounded-2xl">
               <FaMapMarkerAlt className="text-primary text-lg" />
               <p className="text-gray-700 font-medium">{pickupLocation}</p>
             </div>
 
-            {/* Owner */}
             <div className="flex items-center gap-3 bg-gray-50 p-4 rounded-2xl">
               <FaUser className="text-primary text-lg" />
               <div>
@@ -120,7 +110,6 @@ const CarDetailsPage = async ({ params }) => {
               </div>
             </div>
 
-            {/* Status */}
             <div className="flex items-center gap-3 bg-gray-50 p-4 rounded-2xl">
               <FaCheckCircle className="text-green-500 text-lg" />
 
@@ -136,7 +125,6 @@ const CarDetailsPage = async ({ params }) => {
             </div>
           </div>
 
-          {/* BUTTON */}
           <BookingFormModal car={car} />
         </div>
       </div>
