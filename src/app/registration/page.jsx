@@ -11,15 +11,15 @@ import {
   Label,
   TextField,
 } from "@heroui/react";
-import { redirect, useRouter } from "next/navigation";
-// import { useState } from "react";
-// import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 import { FcGoogle } from "react-icons/fc";
 import { toast } from "react-toastify";
 
 const RegistrationPage = () => {
-  // const [isPasswordShow, setIsPasswordShow] = useState(false);
+  const [isPasswordShow, setIsPasswordShow] = useState(false);
   const router = useRouter();
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -90,8 +90,8 @@ const RegistrationPage = () => {
             isRequired
             minLength={6}
             name="password"
-            type="password"
-            // type={isPasswordShow ? "text" : "password"}
+            //type="password"
+            type={isPasswordShow ? "text" : "password"}
             // className="relative"
             validate={(value) => {
               if (value.length < 6) {
@@ -109,13 +109,15 @@ const RegistrationPage = () => {
           >
             <Label>Password</Label>
 
-            <Input placeholder="Enter your password" />
-            {/* <span
-              className="cursor-pointer absolute right-0 top-8.5"
-              onClick={() => setIsPasswordShow(!isPasswordShow)}
-            >
-              {isPasswordShow ? <FaEye /> : <FaEyeSlash />}
-            </span> */}
+            <div className="relative ">
+              <Input placeholder="Enter your password" className="w-full" />
+              <span
+                className="cursor-pointer absolute right-3 top-3"
+                onClick={() => setIsPasswordShow(!isPasswordShow)}
+              >
+                {isPasswordShow ? <FaEye /> : <FaEyeSlash />}
+              </span>
+            </div>
 
             <Description>
               Must be at least 6 characters with 1 uppercase and 1 lowercase

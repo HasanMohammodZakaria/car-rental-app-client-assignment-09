@@ -12,15 +12,16 @@ import {
   TextField,
 } from "@heroui/react";
 import Link from "next/link";
-import { redirect } from "next/navigation";
-// import { useState } from "react";
-// import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 import { FcGoogle } from "react-icons/fc";
 import { toast } from "react-toastify";
 
 const LoginPage = () => {
-  // const [isPasswordShow, setIsPasswordShow] = useState(false);
+  const [isPasswordShow, setIsPasswordShow] = useState(false);
+  const router = useRouter;
   const onSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
@@ -36,7 +37,7 @@ const LoginPage = () => {
 
     if (data) {
       toast.success("Login Successfully!");
-      redirect("/");
+      router.push("/");
     }
     if (error) {
       toast.error(error?.message || "Something went Wrong");
@@ -72,9 +73,7 @@ const LoginPage = () => {
             isRequired
             minLength={6}
             name="password"
-            type="password"
-            // type={isPasswordShow ? "text" : "password"}
-            // className="relative"
+            type={isPasswordShow ? "text" : "password"}
             validate={(value) => {
               if (value.length < 6) {
                 return "Password must be at least 6 characters";
@@ -91,14 +90,15 @@ const LoginPage = () => {
           >
             <Label>Password</Label>
 
-            <Input placeholder="Enter your password" />
-            {/* <span
-              className="cursor-pointer absolute right-0 top-8.5"
-              onClick={() => setIsPasswordShow(!isPasswordShow)}
-            >
-              {isPasswordShow ? <FaEye /> : <FaEyeSlash />}
-            </span> */}
-
+            <div className="relative">
+              <Input placeholder="Enter your password" className="w-full" />
+              <span
+                className="cursor-pointer absolute right-3 top-3"
+                onClick={() => setIsPasswordShow(!isPasswordShow)}
+              >
+                {isPasswordShow ? <FaEye /> : <FaEyeSlash />}
+              </span>
+            </div>
             <Description>
               Must be at least 6 characters with 1 uppercase and 1 lowercase
             </Description>
