@@ -94,3 +94,15 @@ export const fetchDeleteMyCar = async (id) => {
     return data
 }
 
+
+export const fetchDeleteMyBooking = async (id) => {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/booking/${id}`, {
+        method: 'DELETE',
+        headers: {
+            'content-type': 'application/json',
+        },
+    })
+    if (!res.ok) throw new Error('Failed to fetch booking');
+    const data = await res.json();
+    return data
+}
