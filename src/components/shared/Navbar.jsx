@@ -69,7 +69,7 @@ const Navbar = () => {
             </div>
           ) : !user ? (
             <Link href="/login">
-              <Button className="border border-[#F97316] bg-transparent text-[#F97316] hover:bg-[#F97316] hover:text-white">
+              <Button className="border border-[#F97316] rounded-xl bg-transparent text-[#F97316] hover:bg-[#F97316] hover:text-white">
                 Login
               </Button>
             </Link>
@@ -173,7 +173,7 @@ const Navbar = () => {
             </div>
           ) : !user ? (
             <Link href="/login">
-              <Button className="w-full border border-[#F97316] text-[#F97316] bg-transparent">
+              <Button className="w-full border border-[#F97316] rounded-xl text-[#F97316] bg-transparent">
                 Login
               </Button>
             </Link>
