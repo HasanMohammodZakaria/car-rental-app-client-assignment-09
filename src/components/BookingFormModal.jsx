@@ -26,11 +26,8 @@ export function BookingFormModal({ car }) {
     imageUrl,
     carName,
     dailyRentPrice,
-    carType,
-    seatCapacity,
-    pickupLocation,
 
-    availabilityStatus,
+    pickupLocation,
   } = car;
 
   const handleBooking = async (e) => {

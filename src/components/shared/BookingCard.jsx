@@ -1,5 +1,3 @@
-"use client";
-import { Button } from "@heroui/react";
 import Image from "next/image";
 import { FaCar, FaMapMarkerAlt, FaCalendarAlt, FaUser } from "react-icons/fa";
 

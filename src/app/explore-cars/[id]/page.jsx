@@ -17,15 +17,9 @@ export const dynamic = "force-dynamic";
 const CarDetailsPage = async ({ params }) => {
   const { id } = await params;
 
-  const session = await auth.api.getSession({
-    headers: await headers(),
-  });
-  const user = session?.user;
-
   const car = await fetchSingleCar(id);
 
   const {
-    _id,
     imageUrl,
     carName,
     dailyRentPrice,
@@ -35,9 +29,6 @@ const CarDetailsPage = async ({ params }) => {
     description,
     availabilityStatus,
     bookedCount,
-    ownerName,
-    ownerEmail,
-    fleetAddress,
   } = car;
 
   return (
@@ -95,19 +86,6 @@ const CarDetailsPage = async ({ params }) => {
             <div className="flex items-center gap-3 bg-gray-50 p-4 rounded-2xl">
               <FaMapMarkerAlt className="text-primary text-lg" />
               <p className="text-gray-700 font-medium">{pickupLocation}</p>
-            </div>
-
-            <div className="flex items-center gap-3 bg-gray-50 p-4 rounded-2xl">
-              <FaUser className="text-primary text-lg" />
-              <div>
-                <p className="font-semibold text-gray-800">
-                  {ownerName || "Fleet Owner"}
-                </p>
-                <p className="text-sm text-gray-500">{ownerEmail}</p>
-                <p className="text-sm text-gray-500">
-                  {fleetAddress || "Local Fleet Address"}
-                </p>
-              </div>
             </div>
 
             <div className="flex items-center gap-3 bg-gray-50 p-4 rounded-2xl">

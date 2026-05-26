@@ -110,7 +110,7 @@ const Navbar = () => {
                   </Link>
 
                   <Link
-                    href="/my-cars"
+                    href="/my-added-cars"
                     className="block px-4 py-3 hover:bg-gray-100"
                   >
                     My Added Cars
@@ -199,8 +199,8 @@ const Navbar = () => {
                 Add Car
               </Link>
 
-              <Link href="/my-cars" className="hover:text-[#F97316]">
-                My Cars
+              <Link href="/my-added-cars" className="hover:text-[#F97316]">
+                My Added Cars
               </Link>
 
               <Link href="/my-bookings" className="hover:text-[#F97316]">

@@ -130,18 +130,6 @@ const AddCarPage = () => {
               <FieldError />
             </TextField>
 
-            {/* Fleet Address */}
-            <div className="md:col-span-2">
-              <TextField name="fleetAddress" isRequired>
-                <Label>Fleet Address</Label>
-                <Input
-                  placeholder="e.g. 123 Main St, Dhaka"
-                  className="rounded-xl"
-                />
-                <FieldError />
-              </TextField>
-            </div>
-
             {/* Description (Full width) */}
             <div className="md:col-span-2">
               <TextField name="description" isRequired>

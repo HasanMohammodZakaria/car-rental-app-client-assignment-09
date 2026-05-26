@@ -17,7 +17,9 @@ const MyBookingPage = async () => {
   return (
     <div className="max-w-7xl mx-auto px-4 py-10">
       {/* TITLE */}
-      <h1 className="text-2xl md:text-3xl font-bold mb-8">My Bookings Cars</h1>
+      <h1 className="text-2xl md:text-3xl font-bold mb-6 text-[#0F172A]">
+        My Bookings Cars({bookings.length})
+      </h1>
 
       {/* EMPTY STATE */}
       {bookings?.length === 0 ? (

@@ -7,6 +7,7 @@ import EditCarModal from "@/components/shared/EditCarModal";
 import { DeleteAddedCarAlert } from "@/components/shared/DeleteAddedCarAlert";
 import { Card } from "@heroui/react";
 import { CgTrashEmpty } from "react-icons/cg";
+import EmptyAddedCar from "@/components/shared/EmptyAddedCar";
 
 const MyAddedCarsPage = () => {
   const { data: session } = authClient.useSession();
@@ -41,22 +42,12 @@ const MyAddedCarsPage = () => {
   }
 
   if (cars.length === 0) {
-    return (
-      <div className="max-w-7xl mx-auto px-4 py-20 text-center">
-        <Card className="border py-8 flex items-center ">
-          <CgTrashEmpty size={40} className="text-red-500" />
-
-          <h2 className=" text-md md:text-2xl font-bold text-[#0F172A]">
-            You have not added any car yet.
-          </h2>
-        </Card>
-      </div>
-    );
+    return <EmptyAddedCar />;
   }
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-10">
-      <h1 className="text-2xl font-bold mb-6 text-[#0F172A]">
+      <h1 className="text-2xl  md:text-3xl font-bold mb-6 text-[#0F172A]">
         My Added Cars ({cars.length})
       </h1>
 
