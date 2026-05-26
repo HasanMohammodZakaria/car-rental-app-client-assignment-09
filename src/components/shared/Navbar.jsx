@@ -16,7 +16,7 @@ import { useRouter } from "next/navigation";
 
 const Navbar = () => {
   const router = useRouter();
-  const { data: session } = authClient.useSession();
+  const { data: session, isPending } = authClient.useSession();
 
   const user = session?.user;
   // console.log(user);
@@ -62,7 +62,12 @@ const Navbar = () => {
         </ul>
 
         <div className="hidden lg:flex items-center gap-4 shrink-0 relative">
-          {!user ? (
+          {isPending ? (
+            <div className="flex items-center gap-3 border border-gray-200 px-4 py-2 rounded-xl animate-pulse">
+              <div className="w-9 h-9 rounded-full bg-gray-200" />
+              <div className="w-24 h-4 rounded bg-gray-200" />
+            </div>
+          ) : !user ? (
             <Link href="/login">
               <Button className="border border-[#F97316] bg-transparent text-[#F97316] hover:bg-[#F97316] hover:text-white">
                 Login
@@ -161,7 +166,12 @@ const Navbar = () => {
 
           <hr />
 
-          {!user ? (
+          {isPending ? (
+            <div className="flex items-center gap-3 animate-pulse">
+              <div className="w-9 h-9 rounded-full bg-gray-200" />
+              <div className="w-24 h-4 rounded bg-gray-200" />
+            </div>
+          ) : !user ? (
             <Link href="/login">
               <Button className="w-full border border-[#F97316] text-[#F97316] bg-transparent">
                 Login
