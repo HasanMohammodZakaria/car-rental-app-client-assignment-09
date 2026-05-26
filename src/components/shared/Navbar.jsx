@@ -35,7 +35,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="border-b border-[#E2E8F0]">
+    <div className="border-b border-[#E2E8F0] sticky top-0 bg-white z-999 shadow-sm">
       <nav className="w-full max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
         <div className="shrink-0">
           <Link href="/">
