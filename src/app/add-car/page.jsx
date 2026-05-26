@@ -27,6 +27,9 @@ const AddCarPage = () => {
     const car = Object.fromEntries(formData.entries());
 
     car.addedBy = userId;
+
+    car.ownerName = user?.name;
+    car.ownerEmail = user?.email;
     const result = await fetchAddCar(car);
 
     if (result?.insertedId) {
@@ -45,7 +48,10 @@ const AddCarPage = () => {
             <div className="md:col-span-2">
               <TextField name="carName" isRequired>
                 <Label>Car Name</Label>
-                <Input placeholder="Nissan X-Trail" className="rounded-xl" />
+                <Input
+                  placeholder="e.g. Nissan X-Trail"
+                  className="rounded-xl"
+                />
                 <FieldError />
               </TextField>
             </div>
@@ -53,7 +59,11 @@ const AddCarPage = () => {
             {/* Price */}
             <TextField name="dailyRentPrice" type="number" isRequired>
               <Label>Price (USD)</Label>
-              <Input type="number" placeholder="999" className="rounded-xl" />
+              <Input
+                type="number"
+                placeholder="e.g. 999"
+                className="rounded-xl"
+              />
               <FieldError />
             </TextField>
 
@@ -62,7 +72,7 @@ const AddCarPage = () => {
               name="carType"
               isRequired
               className="w-full"
-              placeholder="Select Car Type"
+              placeholder="e.g. Select Car Type"
             >
               <Label>Car Type</Label>
               <Select.Trigger className="rounded-xl">
@@ -96,7 +106,7 @@ const AddCarPage = () => {
                 <Label>Image URL</Label>
                 <Input
                   type="url"
-                  placeholder="https://example.com/image.jpg"
+                  placeholder="e.g. https://example.com/image.jpg"
                   className="rounded-xl"
                 />
                 <FieldError />
@@ -106,16 +116,31 @@ const AddCarPage = () => {
             {/* Seat Capacity */}
             <TextField name="seatCapacity" isRequired>
               <Label>Seat Capacity</Label>
-              <Input placeholder="5 Seat / 7 Seat" className="rounded-xl" />
+              <Input
+                placeholder="e.g. 5 Seat / 7 Seat"
+                className="rounded-xl"
+              />
               <FieldError />
             </TextField>
 
             {/* Pickup Location */}
             <TextField name="pickupLocation" isRequired>
               <Label>Pickup Location</Label>
-              <Input placeholder="Dhaka / Uttara" className="rounded-xl" />
+              <Input placeholder="e.g. Dhaka / Uttara" className="rounded-xl" />
               <FieldError />
             </TextField>
+
+            {/* Fleet Address */}
+            <div className="md:col-span-2">
+              <TextField name="fleetAddress" isRequired>
+                <Label>Fleet Address</Label>
+                <Input
+                  placeholder="e.g. 123 Main St, Dhaka"
+                  className="rounded-xl"
+                />
+                <FieldError />
+              </TextField>
+            </div>
 
             {/* Description (Full width) */}
             <div className="md:col-span-2">
@@ -123,7 +148,7 @@ const AddCarPage = () => {
                 <Label>Description</Label>
                 <TextArea
                   rows={6}
-                  placeholder="Describe the travel experience..."
+                  placeholder="e.g. Describe the travel experience..."
                   className="rounded-xl"
                 />
                 <FieldError />
@@ -135,7 +160,7 @@ const AddCarPage = () => {
               <TextField name="availabilityStatus" isRequired>
                 <Label>Availability Status</Label>
                 <TextArea
-                  placeholder="Available / Booked"
+                  placeholder="e.g. Available / Booked"
                   className="rounded-xl"
                 />
                 <FieldError />
