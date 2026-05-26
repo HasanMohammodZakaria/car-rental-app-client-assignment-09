@@ -159,7 +159,7 @@ const AddCarPage = () => {
             <div className="md:col-span-2">
               <TextField name="availabilityStatus" isRequired>
                 <Label>Availability Status</Label>
-                <TextArea
+                <Input
                   placeholder="e.g. Available / Booked"
                   className="rounded-xl"
                 />

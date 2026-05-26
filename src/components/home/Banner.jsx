@@ -17,13 +17,13 @@ const Banner = () => {
           className="absolute inset-0 bg-cover bg-center"
           style={{
             backgroundImage:
-              "url('https://images.unsplash.com/photo-1612544448445-b8232cff3b6c?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')",
+              "url('https://images.unsplash.com/photo-1612544448445-b8232cff3b6c')",
           }}
         />
 
         {/* Overlay */}
-        <div className="absolute inset-0 bg-black/60" />
-        <div className="absolute inset-0 bg-linear-to-r from-black/80 via-black/40 to-transparent" />
+
+        <div className="absolute inset-0 bg-linear-to-r from-black/70 via-black/40 to-transparent" />
 
         {/* Content */}
         <div className="relative z-10 flex items-center justify-center min-h-screen">
