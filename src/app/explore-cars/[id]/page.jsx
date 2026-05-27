@@ -3,15 +3,12 @@ import {
   FaCar,
   FaChair,
   FaMapMarkerAlt,
-  FaUser,
   FaUsers,
   FaCheckCircle,
 } from "react-icons/fa";
 
-import { fetchSingleCar } from "@/lib/cars/data";
+import { fetchSingleCar } from "@/lib/cars/data.server";
 import { BookingFormModal } from "@/components/BookingFormModal";
-import { auth } from "@/lib/auth";
-import { headers } from "next/headers";
 export const dynamic = "force-dynamic";
 
 const CarDetailsPage = async ({ params }) => {

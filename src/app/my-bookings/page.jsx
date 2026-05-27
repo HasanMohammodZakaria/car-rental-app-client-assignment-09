@@ -1,7 +1,7 @@
 import BookingCard from "@/components/shared/BookingCard";
 import EmptyBookingCard from "@/components/shared/EmptyBookingCard";
 import { auth } from "@/lib/auth";
-import { fetchUserBooking } from "@/lib/cars/data";
+import { fetchUserBooking } from "@/lib/cars/data.server";
 import { headers } from "next/headers";
 import React from "react";
 
@@ -10,7 +10,7 @@ const MyBookingPage = async () => {
     headers: await headers(),
   });
   const user = session?.user;
-  //console.log(user);
+
   const bookings = await fetchUserBooking(user?.id);
   console.log(bookings);
 

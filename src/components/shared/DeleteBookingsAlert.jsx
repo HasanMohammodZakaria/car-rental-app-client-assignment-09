@@ -1,5 +1,6 @@
 "use client";
 
+import { authClient } from "@/lib/auth-client";
 import { fetchDeleteMyBooking } from "@/lib/cars/data";
 import { AlertDialog, Button } from "@heroui/react";
 import { useRouter } from "next/navigation";
@@ -10,6 +11,8 @@ export function DeleteBookingsAlert({ booking }) {
   const [open, setOpen] = useState(false);
   const router = useRouter();
   const { carName } = booking;
+
+  const { data: session } = authClient.useSession();
 
   const handleMyDeleteBooking = async () => {
     const deleteBooking = await fetchDeleteMyBooking(booking._id);

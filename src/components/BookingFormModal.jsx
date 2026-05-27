@@ -62,7 +62,7 @@ export function BookingFormModal({ car }) {
       const bookings = await fetchBooking(bookingData);
       //console.log(bookings);
 
-      console.log(bookingData);
+      //console.log(bookingData);
       toast.success("Booking successful!");
       router.refresh();
       router.push("/my-bookings");

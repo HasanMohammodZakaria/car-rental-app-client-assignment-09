@@ -17,6 +17,7 @@ import { authClient } from "@/lib/auth-client";
 const AddCarPage = () => {
   const router = useRouter();
   const { data: session } = authClient.useSession();
+  const token = session?.session?.token;
 
   const user = session?.user;
   const userId = user?.id;
@@ -30,7 +31,7 @@ const AddCarPage = () => {
 
     car.ownerName = user?.name;
     car.ownerEmail = user?.email;
-    const result = await fetchAddCar(car);
+    const result = await fetchAddCar(car, token);
 
     if (result?.insertedId) {
       router.push("/explore-cars");
