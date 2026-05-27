@@ -1,6 +1,6 @@
 "use client";
 
-import { fetchDeleteMyBooking, fetchDeleteMyCar } from "@/lib/cars/data";
+import { fetchDeleteMyBooking } from "@/lib/cars/data";
 import { AlertDialog, Button } from "@heroui/react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";

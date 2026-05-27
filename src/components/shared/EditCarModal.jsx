@@ -12,15 +12,14 @@ import {
   Modal,
   Surface,
 } from "@heroui/react";
-import { useRouter } from "next/navigation";
 
 import { useState } from "react";
 import { BiEdit } from "react-icons/bi";
 import { FiEdit } from "react-icons/fi";
 import { toast } from "react-toastify";
-const EditCarModal = ({ car }) => {
+const EditCarModal = ({ car, refetch }) => {
   const [open, setOpen] = useState(false);
-  const router = useRouter();
+
   const {
     carName,
     dailyRentPrice,
@@ -40,7 +39,7 @@ const EditCarModal = ({ car }) => {
     const result = await fetchUpdateCar(car._id, updatedCar);
 
     if (result?.modifiedCount > 0) {
-      router.refresh();
+      refetch();
       setOpen(false);
 
       toast.success("Car updated successfully!");
@@ -53,12 +52,7 @@ const EditCarModal = ({ car }) => {
     <Modal isOpen={open} onOpenChange={setOpen}>
       <button
         onClick={() => setOpen(true)}
-        className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200"
-        style={{
-          backgroundColor: "#F9731615",
-          color: "#F97316",
-          border: "1px solid #F97316",
-        }}
+        className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 bg-[#F9731615] texts-[#F97316] border-[#F97316]"
         onMouseEnter={(e) => {
           e.currentTarget.style.backgroundColor = "#F97316";
           e.currentTarget.style.color = "#fff";

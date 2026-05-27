@@ -1,12 +1,10 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { authClient } from "@/lib/auth-client";
 import { fetchMyAddedCars } from "@/lib/cars/data";
 import Image from "next/image";
 import EditCarModal from "@/components/shared/EditCarModal";
 import { DeleteAddedCarAlert } from "@/components/shared/DeleteAddedCarAlert";
-import { Card } from "@heroui/react";
-import { CgTrashEmpty } from "react-icons/cg";
 import EmptyAddedCar from "@/components/shared/EmptyAddedCar";
 
 const MyAddedCarsPage = () => {
@@ -16,7 +14,7 @@ const MyAddedCarsPage = () => {
   const [cars, setCars] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
+  const loadCars = useCallback(() => {
     if (userId) {
       fetchMyAddedCars(userId).then((data) => {
         setCars(Array.isArray(data) ? data : []);
@@ -24,6 +22,10 @@ const MyAddedCarsPage = () => {
       });
     }
   }, [userId]);
+
+  useEffect(() => {
+    loadCars();
+  }, [loadCars]);
 
   if (loading) {
     return (
@@ -107,10 +109,10 @@ const MyAddedCarsPage = () => {
               {/* Edit & Delete Buttons */}
               <div className="flex items-center justify-between pt-3 border-t-[#F9731640]">
                 {/* Edit — Left */}
-                <EditCarModal car={car} />
+                <EditCarModal car={car} refetch={loadCars} />
 
                 {/* Delete Button */}
-                <DeleteAddedCarAlert car={car} />
+                <DeleteAddedCarAlert car={car} refetch={loadCars} />
               </div>
             </div>
           </div>

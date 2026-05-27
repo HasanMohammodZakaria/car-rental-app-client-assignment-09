@@ -63,7 +63,9 @@ export const fetchUserBooking = async (userId) => {
 }
 
 export const fetchMyAddedCars = async (userId) => {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/my-added-cars/${userId}`)
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/my-added-cars/${userId}`, {
+        cache: "no-store"
+    })
     if (!res.ok) throw new Error('Failed to fetch cars');
     const data = await res.json();
     return data
@@ -71,6 +73,7 @@ export const fetchMyAddedCars = async (userId) => {
 
 export const fetchUpdateCar = async (id, updatedCar) => {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/cars/${id}`, {
+
         method: "PATCH",
         headers: {
             'content-type': 'application/json',
