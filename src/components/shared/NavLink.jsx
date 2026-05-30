@@ -2,12 +2,12 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-const NavLink = ({ href, children }) => {
+const NavLink = ({ href, children, onClick }) => {
   const pathname = usePathname();
   const isActive = href === pathname;
   return (
     <div className="relative inline-block">
-      <Link href={href} className="relative pb-1">
+      <Link href={href} onClick={onClick} className="relative pb-1">
         {children}
         <span
           className={`absolute left-0 -bottom-1 h-0.5 bg-[#F97316] transition-all duration-300
