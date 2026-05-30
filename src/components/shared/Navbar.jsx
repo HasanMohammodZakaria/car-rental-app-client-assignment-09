@@ -97,6 +97,7 @@ const Navbar = () => {
                 <div className="absolute left-1/2 -translate-x-1/2 mt-3 w-64 min-w-60 bg-white border rounded-lg shadow-lg z-50 overflow-hidden">
                   <Link
                     href="/add-car"
+                    onClick={() => setProfileOpen(false)}
                     className="block px-4 py-3 hover:bg-gray-100"
                   >
                     Add Car
@@ -104,6 +105,7 @@ const Navbar = () => {
 
                   <Link
                     href="/my-bookings"
+                    onClick={() => setProfileOpen(false)}
                     className="block px-4 py-3 hover:bg-gray-100"
                   >
                     My Bookings
@@ -111,6 +113,7 @@ const Navbar = () => {
 
                   <Link
                     href="/my-added-cars"
+                    onClick={() => setProfileOpen(false)}
                     className="block px-4 py-3 hover:bg-gray-100"
                   >
                     My Added Cars
@@ -195,15 +198,27 @@ const Navbar = () => {
                 <span className="font-medium">{user?.name || "User"}</span>
               </div>
 
-              <Link href="/add-car" className="hover:text-[#F97316]">
+              <Link
+                href="/add-car"
+                onClick={() => setOpen(false)}
+                className="hover:text-[#F97316]"
+              >
                 Add Car
               </Link>
 
-              <Link href="/my-added-cars" className="hover:text-[#F97316]">
+              <Link
+                href="/my-added-cars"
+                onClick={() => setOpen(false)}
+                className="hover:text-[#F97316]"
+              >
                 My Added Cars
               </Link>
 
-              <Link href="/my-bookings" className="hover:text-[#F97316]">
+              <Link
+                href="/my-bookings"
+                onClick={() => setOpen(false)}
+                className="hover:text-[#F97316]"
+              >
                 My Bookings
               </Link>
 
