@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import Link from "next/link";
 const Banner = () => {
   return (
     <div>
@@ -62,22 +63,26 @@ const Banner = () => {
                 transition={{ duration: 0.7, delay: 0.3 }}
                 className="flex flex-col sm:flex-row gap-3 mt-7 justify-center md:justify-start"
               >
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="bg-[#F97316] text-white px-5 py-3 rounded-xl font-medium"
-                >
-                  Explore Cars
-                </motion.button>
+                <Link href="/explore-cars">
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="bg-[#F97316] text-white px-5 py-3 rounded-xl font-medium"
+                  >
+                    Explore Cars
+                  </motion.button>
+                </Link>
 
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="border border-white text-white px-5 py-3 rounded-xl
+                <Link href="/explore-cars/:path">
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="border border-white text-white px-5 py-3 rounded-xl
                      hover:bg-white hover:text-black transition"
-                >
-                  Book Now
-                </motion.button>
+                  >
+                    Book Now
+                  </motion.button>
+                </Link>
               </motion.div>
             </div>
           </div>
