@@ -31,8 +31,8 @@
 | React Icons | Icon Library |
 |Mongodb | Data Base Management |
 |react-toastify | Use for user notification |
-|react |  |
-|react-dom |  |
+|react | UI component building and state management |
+|react-dom | Rendering React components to the browser DOM |
 
 
 ### Backend
