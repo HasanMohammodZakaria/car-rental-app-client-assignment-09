@@ -2,7 +2,7 @@
 
 > A modern full-stack Car Rental Platform where users can explore premium vehicles, book rentals, manage listings, and track their bookings — all with a clean, recruiter-friendly UI.
 
-🌐 **Live Site:** https://car-rental-kohl-delta.vercel.app/](https://car-rental-kohl-delta.vercel.app/)
+🌐 **Live Site:** https://car-rental-kohl-delta.vercel.app
 
 ---
 
